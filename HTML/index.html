@@ -10,7 +10,7 @@
 
 <body>
     <!-- heading 1em = 16px-->
-    <h1>Esto es un titulo h1 </h1>
+    <h1 id="titulo1">Esto es un titulo h1 </h1>
     <h2>Esto es un titulo h2 </h2>
     <h3>Esto es un titulo h3 </h3>
     <h4>Esto es un titulo h4 </h4>
@@ -20,7 +20,95 @@
     <br>
     <!-- <hr> linea horizontal-->
     <hr>
-
+    <!--Parrafos-->
+    <p>
+        <b>HTML</b> <i>es el lenguaje</i> <u>de marcado</u> con el que se estructura y escribe contenido, para luego ser interpretado por un navegador web. Conocer este lenguaje y su alcance, es el primer paso para empezar a comprender cómo crear sitios
+        que se adapten a las necesidades del mercado, con buenas prácticas de programación y una visión completa del proceso de desarrollo
+    </p>
+    <p>
+        <strong> 
+            <i> 
+                <u>HTML es el lenguaje</u>
+            </i> 
+        </strong>
+    </p>
+    <br>
+    <hr>
+    <!-- Links (anchor tag) (href) -->
+    <a href="https://www.w3schools.com"> w3School</a><br>
+    <a href="https://www.emol.com" target="_blank"> EL Diario</a><br>
+    <!-- rediccionar a otra pagina interna-->
+    <a href="index2.html"> Index 2</a>
+    <a href="index3.html"> Index 3</a>
+    <br>
+    <!--link con imagen-->
+    <a href="https://www.linux.org" target="_blank">
+        <img src="assets/img/tux.jpeg">
+    </a>
+    <br>
+    <!-- link dentro de  la pagina-->
+    <a href="#titulo1">titulo</a>
+    <br>
+    <hr>
+    <!-- Listas (ordenadas OL y No ordenadas UL)-->
+    <!-- li list items-->
+    <ol>
+        <li>uno</li>
+        <li>dos</li>
+        <li>tres</li>
+    </ol>
+    <ul>
+        <li>uno</li>
+        <li>dos</li>
+        <li>tres</li>
+    </ul>
+    <!-- -->
+    <ul>
+        <li>uno
+            <ul>
+                <li>uno uno
+                    <ul>
+                        <li>uno uno uno</li>
+                        <li>uno uno dos</li>
+                    </ul>
+                </li>
+                <li>uno dos</li>
+            </ul>
+        </li>
+        <li>dos</li>
+        <li>tres</li>
+    </ul>
+    <br>
+    <hr>
+    <!-- imagenes-->
+    <img src="assets/img/bat_tux.jpeg" alt="batman"><br>
+    <img src="assets/img/tux-gandalf.png" alt="gandalf">
+    <img src="assets/img/tux_chile.jpeg" alt="chile">
+    <img src="assets/img/fondoe.jpeg">
+    <br>
+    <hr>
+    <!-- tabla -->
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>German</td>
+                <td>Pinto</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Isra</td>
+                <td>Palma</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>
