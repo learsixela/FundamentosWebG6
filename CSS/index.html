@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS SELECTOR</title>
+    <style>
+        /* 3 formas de dar estilo*/
+        /* 1 forma - Etiqueta: todos los elementos se ven afectados */
+        
+        body {
+            background: seashell url("assets/img/hcj.png") no-repeat fixed center;
+            background-size: auto;
+            background-color: #35313c;
+        }
+        /*0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f*/
+        
+        p {
+            color: green;
+            background-color: orange;
+        }
+        
+        div {
+            width: 400px;
+            height: 400px;
+            color: red;
+            background-color: chocolate;
+        }
+        
+        a {
+            text-decoration: line-through;
+            /*lineas al texto*/
+            /*
+            underline(bajo)
+            overline(sobre)
+            line-through(tachada)
+            none(quita)
+            */
+        }
+        /* 2 forma - Clase(.):uno o mas elementos */
+        
+        .parrafo {
+            color: blue;
+            font-size: 16px;
+            /*1em*/
+            font-style: italic;
+            font-weight: 600;
+            font-family: Arial, Verdana, Tahoma, sans-serif, sans-serif;
+        }
+        
+        .web {
+            width: 200px;
+            /* height: 200px;*/
+        }
+        /* 3 forma - ID(#): un elemento*/
+        
+        #p3 {
+            color: indigo;
+        }
+        
+        #p4 {
+            color: cyan;
+            width: 100px;
+            height: 50px;
+            text-decoration: overline;
+        }
+        
+        #tituloh2 {
+            text-align: center;
+        }
+        
+        #div2 {
+            text-align: center;
+        }
+        /*
+        elemento 1
+        .class 10
+        .#id 100
+        */
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2 id="tituloh2">algo</h2>
+        <p>parrafo 1</p>
+        <p class="parrafo">parrafo 2</p>
+        <p class="parrafo" id="p3">parrafo 3</p>
+        <p class="parrafo" id="p4">parrafo 4</p>
+        <a href="#">texto</a>
+    </div>
+    <br>
+    <div id="div2">
+        <img class="web" src="assets/img/hcj.png" alt="desarrollo web">
+    </div>
+</body>
+
+</html>
