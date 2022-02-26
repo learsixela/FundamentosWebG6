@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos</title>
+    <script src="js/scritp.js"></script>
+    <script>
+        let estudiantes = ["Edinson", "Jaime", "Isabel",
+            "Israel", "Jose", "Kevin", "Nelson", "Yerkarin", "Patricia"
+        ];
+        console.log(estudiantes);
+        let vocales = new Array("a", "e", "i", "o", "u");
+        console.log(vocales);
+        let arregloVacio = [];
+        console.log(arregloVacio);
+        //listas {key: valor}
+        let arregloLista = [{
+            nombre: "Edinson"
+        }, {
+            nombre: "Jaime"
+        }, {
+            nombre: "Isabel"
+        }, {
+            nombre: "Israel"
+        }, {
+            nombre: "Jose"
+        }, {
+            nombre: "Kevin"
+        }, {
+            nombre: "Nelson"
+        }, {
+            nombre: "Yerkarin"
+        }, {
+            nombre: "Patricia"
+        }];
+        console.log(arregloLista);
+
+        console.log(estudiantes[4], arregloLista[4].nombre);
+
+        var datosPersonales = ["Israel", "Palma", {
+            edad: 41,
+            año_nacimiento: 1980
+        }, false];
+        console.log(datosPersonales);
+
+        document.write(`Hola ${datosPersonales[0]} ${datosPersonales[1]}`);
+        document.write("<br>");
+        document.write(`naciste el año ${datosPersonales[2].año_nacimiento}  y tu edad es ${datosPersonales[2].edad}`);
+
+        //MATRICES
+        var matriz3x3 = [
+            [1, 2, 3, 34, 456], //posicion 0
+            [4, 5, 6], //posicion 1
+            [7, 8, 9], //posicion 2
+            [10, 11, 12]
+        ];
+        console.log(matriz3x3);
+
+        // (0,0) (0,1) (0,2)
+        // (1,0) (1,1) (1,2)
+        // (2,0) (2,1) (2,2)
+
+        console.log(matriz3x3[1][1], matriz3x3[2][1]); // 5 8
+
+        var productos = {
+            "productos": [{
+                "id": 1,
+                "nombre": "Pera",
+                "descripcion": "El rincon de Soto",
+                "precio": 12.34
+            }, {
+                "id": 2,
+                "nombre": "Kiwi",
+                "descripcion": "Zespri",
+                "precio": 2.34
+            }, {
+                "id": 3,
+                "nombre": null,
+                "descripcion": null,
+                "precio": null
+            }, {
+                "id": 4,
+                "nombre": null,
+                "descripcion": null,
+                "precio": null
+            }, {
+                "id": 5,
+                "nombre": "Melocotones",
+                "descripcion": "Natur",
+                "precio": "3.55"
+            }]
+        }
+        console.clear();
+        console.log(productos);
+        console.dir(productos.productos); //variable.clave; retorna un arreglo
+        //kiwi
+        console.log(productos.productos[1].nombre); //accedo por posicion y clave interna
+        document.write("<br><br><hr>");
+        //RECORRER ARREGLOS
+        for (let i = 0; i < productos.productos.length; i++) {
+            document.write(`el id es: ${productos.productos[i].id}, `);
+            document.write(`el nombre es: ${productos.productos[i].nombre}, `);
+            document.write(`la descripcion es: ${productos.productos[i].descripcion}, `);
+            document.write(`el precio es: ${productos.productos[i].precio}. `);
+            document.write("<br><hr>");
+        }
+        //FOR...IN (para objetos)
+        var fruta = {
+            "id": 5,
+            "nombre": "Melocotones",
+            "descripcion": "Natur",
+            "precio": "3.55"
+        }
+
+        for (let clave in fruta) {
+            console.log("objeto clave", clave, "valor", fruta[clave]);
+        }
+        //FOR...IN (Arreglos)
+        for (let posicion in estudiantes) {
+            console.log("arreglo posicion", posicion, "valor", estudiantes[posicion]); //posiciones
+        }
+
+        //FOR...OF (Arreglos)
+        //permite obtener datos internos del arreglo sin el uso de las posiciones
+        //for of NO SIRVE PARA OBJETOS
+        for (let valor of estudiantes) {
+            console.log("valor", valor);
+        }
+        document.write("<br>");
+        for (let posicion in datosPersonales) {
+            let elemento = datosPersonales[posicion];
+            //console.log("elemento", elemento);
+            document.write(`elemento ${elemento} `);
+            document.write("<br>");
+        }
+    </script>
+    <link rel="stylesheet" href="css/micss.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+    <script src="js/myscritp.js"></script>
+</body>
+
+</html>
