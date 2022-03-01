@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones JQuery::</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+    <script>
+        $(document).ready(function() {
+            //asignar eventos por elemento, clase(.), y id(#); $("#btn1").evento(function(){ });
+            //tipos de funciones
+            //efectos
+            $("#btn1").click(function() {
+                //$("p").hide();//elemento
+                //$(".container").hide();//clase
+                $("#efex").hide(); //ocultar el elemento y todo su contenido por id
+            });
+            $("#btn2").click(function() {
+                $("#efex").show(); //mostrar el elemento y todo su contenido por id
+            });
+            $("#btn3").click(function() {
+                $("#efex").toggle(); //mostrar u ocultar el elemento y todo su contenido por id
+            });
+            //--
+            $("#btn4").click(function() {
+                $("#efex").slideUp(); //repliega
+            });
+            $("#btn5").click(function() {
+                $("#efex").slideDown(); //despliega
+            });
+            $("#btn6").click(function() {
+                $("#efex").slideToggle(); //repliega y despliega
+            });
+            //--
+            $("#btn7").click(function() {
+                $("#efex").fadeOut("fast"); //desvanecer rapido
+            });
+            $("#btn8").click(function() {
+                $("#efex").fadeIn("slow"); //mostrar lento
+            });
+            $("#btn9").click(function() {
+                $("#efex").fadeToggle(4000); //mostrar o desvanecer en 4 segundos
+            });
+
+            //estilos (CSS)
+            $("#btn10").click(function() {
+                $("p").addClass("fs-2 text-danger text-center"); //agregar una clase al elemento
+            });
+            $("#btn11").click(function() {
+                $("p").removeClass("text-danger"); //elimina una clase al elemento
+            });
+            $("#btn12").click(function() {
+                $("p").css("background-color", "blue"); //agrega un atributo css
+                $("p").css("color", "green");
+                $("p").css("width", "300");
+                $("p").css("margin", "100px");
+            });
+
+            //manipulacion; agregar o eliminar dentro del html
+            //agrega fuera del elemento
+            $("#btn13").click(function() {
+                $("#efex").after("<p>texto after</p>");
+            });
+            $("#btn14").click(function() {
+                $("#efex").before("<p>texto before</p>");
+            });
+
+            //agrega internamente
+            $("#btn15").click(function() {
+                $("#efex").append("<p>texto append</p>");
+            });
+            $("#btn16").click(function() {
+                $("#efex").prepend("<p>texto prepend</p>");
+            });
+
+            $("#btn17").click(function() { //REEMPLAZA TODO
+                $("#efex").html(`<div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>`);
+            });
+            //text
+            $("#btn18").click(function() {
+                let texto = $("p").text(); //extraer todo el texto dentro del o los "p"
+                alert(texto);
+                $("p").text("ya me esta dando hambre");
+            });
+
+            //val(), input, select y textarea
+            $("#btn19").click(function() {
+                let valor = $("#nombre").val(); //capturar lo ingresado 
+                alert(valor);
+                $("#nombre").val("ahora si a comer"); //reemplazar el valor del input
+            });
+            //eventos
+            //.click() hover()
+
+            //fin jquery
+        });
+    </script>
+    <style>
+        /*p{
+            background-color: blue;
+        }*/
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- before -->
+        <div id="efex">
+            <!--prepend -->
+            <br>
+            <input type="text" class="form-class" id="nombre">
+            <p>El prestigioso centro médico dental de Ñuñoa le ha encargado la tarea de obtener información estadística acerca de las consultas dentales que realizó durante el día de ayer. Para esto, se le entregará un listado de las consultas realizadas.
+                El listado, contiene una tabla con las siguientes columnas: hora de atención, médico especialista, nombre del paciente, Rut del paciente y previsión (Fonasa o Isapre).</p>
+            <br>
+            <hr>
+            <!--append -->
+        </div>
+        <!-- after-->
+
+        <button class="btn btn-primary" id="btn1">funcion hide()</button>
+        <button class="btn btn-secondary" id="btn2">funcion show()</button>
+        <button class="btn btn-success" id="btn3">funcion toggle()</button>
+        <br>
+        <hr>
+        <button class="btn btn-primary" id="btn4">funcion slideUp()</button>
+        <button class="btn btn-secondary" id="btn5">funcion slideDown()</button>
+        <button class="btn btn-success" id="btn6">funcion slideToggle()</button>
+        <br>
+        <hr>
+        <button class="btn btn-primary" id="btn7">funcion fadeOut()</button>
+        <button class="btn btn-secondary" id="btn8">funcion fadeIn()</button>
+        <button class="btn btn-success" id="btn9">funcion fadeToggle()</button>
+        <br>
+        <hr>
+        <button class="btn btn-primary" id="btn10">funcion addClass()</button>
+        <button class="btn btn-secondary" id="btn11">funcion removeClass()</button>
+        <button class="btn btn-success" id="btn12">funcion css()</button>
+        <br>
+        <hr>
+        <button class="btn btn-primary" id="btn13">funcion after()</button>
+        <button class="btn btn-primary" id="btn14">funcion before()</button>
+        <br>
+        <hr>
+        <button class="btn btn-secondary" id="btn15">funcion append()</button>
+        <button class="btn btn-secondary" id="btn16">funcion prepend()</button>
+        <br>
+        <hr>
+        <button class="btn btn-warning" id="btn17">funcion html()</button>
+        <br>
+        <hr>
+        <button class="btn btn-primary" id="btn18">funcion text()</button>
+        <button class="btn btn-secondary" id="btn19">funcion val()</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
