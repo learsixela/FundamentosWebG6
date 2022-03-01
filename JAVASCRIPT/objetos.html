@@ -6,12 +6,149 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Objetos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <script>
+        //objetos();//descomentar para ejecutar 
+        function objetos() {
+            //[] arreglo ; {} objeto
+            var automovil = {
+                //marca: 'Mazda',
+                marca: {
+                    nombre: 'Mazda',
+                    origen: 'Japón'
+                },
+                modelo: '3 sport',
+                patente: 'LJKH63',
+                color: 'azul',
+                kilometraje: 15000,
+                usado: false,
+                encender: function() {
+                    alert('automóvil encendido.');
+                },
+                encender2: function() {
+                    //alert('automóvil ' + marca.nombre + ' ' + modelo + ' encendido.');// marca is not defined
+                    alert('automóvil ' + this.marca.nombre + ' ' + this.modelo + ' encendido.');
+                    //impresion: automóvil Mazda 3 sport encendido
+                }
+            };
+
+            console.log(automovil);
+            //consultar contenido del atributo
+            console.log(automovil.marca);
+            //acceder a atributo funcion
+            console.log(automovil.encender);
+            //ejecutar la atributo funcion
+            console.log(automovil.encender());
+            //acceder al atributo por medio de corchetes
+            console.log(automovil["marca"]);
+            console.log(automovil["encender"]());
+            //acceder a atributos de objeto interno
+            console.log(automovil.marca.nombre);
+            console.log(automovil["marca"].nombre);
+            console.log(automovil["marca"]["nombre"]);
+
+            //RECORRER  for...in
+            for (let clave in automovil) {
+                console.log(`clave: ${clave}, valor: ${automovil[clave]}`);
+            }
+
+            //this: acceder a los atributos del objeto, donde esta la funcion
+            console.log(automovil.encender2());
+
+            //ejercicio this
+            //generar el mensaje(atributo) "El representante del alumno Manuel Pérez es Maria, quien reside en Chile"
+            let alumno = {
+                representante: {
+                    nombre: 'Maria',
+                    edad: 49,
+                    lugar: {
+                        pais: 'Chile',
+                        ciudad: 'Santiago de Chile'
+                    },
+                },
+                nombre: 'Manuel',
+                apellido: 'Perez',
+                peso: '45kg',
+                edad: 10,
+                amigable: true,
+                mensaje: function() {
+                    alert("El representante del alumno " + this.nombre + " " + this.apellido + " es " + this.representante.nombre + ", quien reside en " + this.representante.lugar.pais);
+                }
+            };
+            //llamado a la funcion interna
+            alumno.mensaje();
+
+
+        }
+
+        function dibujarTabla() {
+            //
+            let perros = [{
+                raza: 'Pastor Alemán',
+                origen: 'Alemania',
+                pelaje: 'Lanudo',
+                peso: '33kg',
+                edad: 12
+            }, {
+                raza: 'Poodle',
+                origen: 'Francia',
+                pelaje: 'Lanudo',
+                peso: '20kg',
+                edad: 14
+            }, ];
+            /*
+            //agregar contenido dinamico
+            var contenedor = document.getElementById("contenedor");
+            contenedor.innerHTML = "<h1>Tabla de objeto</h1>";
+            //innerHTML reemplaza TODO el contenido
+            contenedor.innerHTML = "<h2>Tabla de objeto h2</h2>";
+*/
+            //TITULOS DINAMICOS
+            var titulos = document.getElementById("titulos"); //donde escribiremos
+            var texto_titulos = ""; //acumuladora = acumuladora + algo
+
+            for (let clave in perros[0]) { //solo la posicion 0, ya que se repiten
+                texto_titulos = texto_titulos + "<th scope='col' >" + clave.toUpperCase() + "</th>"; //concatenar por cada clave existente
+            }
+
+            titulos.innerHTML = texto_titulos; //insertar en el elemento
+
+            //CONTENIDO DINAMICO
+            var valores = document.getElementById("valores"); //donde escribiremos
+            var texto_valores = ""; //acumuladora = acumuladora + algo
+
+            //perros=[valor1,valor2,....valorn]
+            for (let objeto of perros) { //valor = objeto //recorremos el arreglo
+                var valor_fila_td = ""; //acumuladora interna
+                for (let clave in objeto) { //recorremos los objetos internos 
+                    valor_fila_td = valor_fila_td + "<td>" + objeto[clave] + "</td>"; //objeto[clave] -> obtener el valor
+                }
+                texto_valores = texto_valores + "<tr>" + valor_fila_td + "</tr>";
+            }
+
+            valores.innerHTML = texto_valores; //insertar en el elemento
+        }
     </script>
 </head>
 
 <body>
+    <div class="container" id="contenedor">
+        <p>Razas de Perros</p>
+        <table class="table">
+            <thead>
+                <tr id="titulos">
+                    <!-- titulos dinamicos-->
+                </tr>
+            </thead>
+            <tbody id="valores">
+                <!-- contenido dinamico-->
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-primary" onclick="dibujarTabla()"> Crear tabla</button>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
